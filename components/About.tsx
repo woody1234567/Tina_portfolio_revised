@@ -10,54 +10,79 @@ const About: React.FC = () => {
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
         
-        {/* 左側文字欄 (佔 7 格) */}
-        <div className="lg:col-span-7 space-y-12">
-          <p className="text-xl text-neutral-600 font-light leading-relaxed italic border-l-2 border-neutral-200 pl-8">
-            建築是需求與環境和諧共榮下的產物。藉由當代建築語彙尋找機能與感知間的平衡，讓每一件作品都能在土地上自然生長。
-          </p>
+        {/* 左側：文字內容區 */}
+        <div className="lg:col-span-7 space-y-16">
           
-          <div className="space-y-6 text-lg text-neutral-800 font-light leading-relaxed">
-            <p>
-              我是莊淯婷，我認為建築設計師的任務是重構人與自然的界面。我的設計實踐始於對基地細微變化的觀察，透過對材料的純粹運用，讓空間回歸建築的本質。
+          {/* 1. 設計哲學 */}
+          <section className="space-y-8">
+            <p className="text-xl text-neutral-800 font-light leading-relaxed serif italic border-l-2 border-neutral-200 pl-8">
+              「建築是需求者與環境和諧共榮下的產物。藉由當代建築語彙找出機能與感知間的平衡，讓每一件作品都能在土地上自然生長。」
             </p>
-            <p>
-              核心哲學源於對「少即是多」的堅持，我相信好的設計不應喧賓奪主，而應成為生活的背景，讓光影、空氣與人的活動成為空間的主角。
-            </p>
-          </div>
-          
-          {/* 學歷區塊 */}
-          <div className="pt-12 border-t border-neutral-100">
-            <h3 className="text-xl tracking-[0.4em] uppercase text-neutral-400 mb-8 font-medium">Education 學歷教育</h3>
+            <div className="space-y-6 text-lg text-neutral-500 font-light leading-relaxed">
+              <p>
+                身為建築工程從業者，我認為建築實踐始於對基地環境的體察，在物理環境與使用者需求間尋求最精確的平衡。我堅持『少即是多』的構築哲學，致力於將複雜的技術規範與法規限制，轉譯為結構化且純粹的設計語言。設計應隱匿為生活的背景。透過嚴謹的跨專業整合與技術圖說產出，讓複雜的工程邏輯隱於無形。當設計退位，光影、空氣與人的律動，才能真正成為空間的主角，使建築回歸感知的本質。
+              </p>
+            </div>
+          </section>
+
+          {/* 2. 專業核心特質 - 結構化排版 */}
+          <section className="pt-12 border-t border-neutral-100">
+            <h3 className="text-xs tracking-[0.4em] uppercase text-neutral-400 mb-8 font-medium">Core Strengths 核心特質</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="space-y-3">
+                <h4 className="text-neutral-900 font-medium">溝通協調</h4>
+                <p className="text-sm text-neutral-500 leading-relaxed">擅長與不同專業廠商與業主溝通，具備獨立完成專案經驗，能有效媒合跨領域需求。</p>
+              </div>
+              <div className="space-y-3">
+                <h4 className="text-neutral-900 font-medium">資訊轉譯</h4>
+                <p className="text-sm text-neutral-500 leading-relaxed">善於將複雜的建築技術規範與使用者需求，轉譯為清晰的結構化資訊與設計圖說。</p>
+              </div>
+              <div className="space-y-3">
+                <h4 className="text-neutral-900 font-medium">穩定產出</h4>
+                <p className="text-sm text-neutral-500 leading-relaxed">具備追求效益與樂於嘗試的特質，能在多工環境下維持高度精確且穩定的工作產出。</p>
+              </div>
+            </div>
+          </section>
+
+          {/* 3. 實務經驗 */}
+          <section className="pt-12 border-t border-neutral-100 space-y-6">
+            <h3 className="text-xs tracking-[0.4em] uppercase text-neutral-400 font-medium">Professional Experience 實務經驗</h3>
+            <div className="text-neutral-600 font-light leading-relaxed space-y-4">
+              <p>
+                具備兩年建築師事務所實務經驗，專攻公共工程。在校舍與變電所專案中，主責 Revit 建模與圖說整合，具備從基本設計、都審至建照申請的全流程經驗。
+              </p>
+              <div className="text-sm bg-neutral-50 p-5 rounded-sm border-l-2 border-neutral-200">
+                <span className="text-neutral-900 font-medium">專業工具：</span>
+                Revit (BIM), SketchUp, Lumion, Autocad, Rhino, Twinmotion, CorelDraw, Adobe Creative Suite(Photoshop/Ilustratorr/Indesign).
+              </div>
+            </div>
+          </section>
+
+          {/* 4. 學歷教育 (縮短間距版) */}
+          <section className="pt-12 border-t border-neutral-100">
+            <h3 className="text-xs tracking-[0.4em] uppercase text-neutral-400 mb-6 font-medium">Education 學歷教育</h3>
             <ul className="space-y-4">
-              <li className="flex justify-between items-baseline border-b border-neutral-50 pb-4">
-                <span className="text-base tracking-wide text-neutral-600">國立台灣大學 - 建築與城鄉研究所</span>
-                <span className="text-sm text-neutral-500 italic ml-4">Master</span>
+              <li className="flex justify-between items-baseline border-b border-neutral-50 pb-3">
+                <span className="text-base tracking-wide text-neutral-800">國立台灣大學 - 建築與城鄉研究所</span>
+                <span className="text-sm text-neutral-300 italic">Master</span>
               </li>
-              <li className="flex justify-between items-baseline border-b border-neutral-50 pb-4">
-                <span className="text-base tracking-wide text-neutral-600">逢甲大學 - 建築學系</span>
-                <span className="text-sm text-neutral-500 italic ml-4">Bachelor</span>
+              <li className="flex justify-between items-baseline border-b border-neutral-50 pb-3">
+                <span className="text-base tracking-wide text-neutral-800">逢甲大學 - 建築學系</span>
+                <span className="text-sm text-neutral-300 italic">Bachelor</span>
               </li>
             </ul>
-          </div>
+          </section>
         </div>
         
-       {/* 右側照片欄 (佔 5 格) */}
+        {/* 右側：照片區 (Sticky 固定) */}
         <div className="lg:col-span-5 lg:sticky lg:top-24">
           <div className="relative aspect-[3/4] overflow-hidden group shadow-2xl bg-neutral-100">
             <img 
               src="https://i.postimg.cc/d3jQ5BF8/2x3-24070276-3-0908109372xu-ok.jpg" 
               alt="Tina Chong Portrait" 
-              /* 移除了 grayscale，現在預設就是彩色 */
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800";
-              }}
             />
-            {/* 稍微降低遮罩感，讓彩色照片色彩更鮮明 */}
-            <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-all duration-700"></div>
-            
-            {/* 名字標籤 */}
+            <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all duration-700"></div>
             <div className="absolute bottom-10 right-10 text-white text-right drop-shadow-lg">
               <span className="text-[11px] tracking-[0.3em] uppercase block mb-2 opacity-90 font-medium">
                 Architecture Designer
@@ -68,6 +93,7 @@ const About: React.FC = () => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
