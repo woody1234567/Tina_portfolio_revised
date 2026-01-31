@@ -60,23 +60,25 @@ const App: React.FC = () => {
               <div className="lg:col-span-5 hidden lg:block"></div>
             </div>
 
-            {/* 3. 精選作品區 - 四張小圖橫向展示 */}
+            {/* 3. 精選作品區 - 放大版四張小圖 + 查看所有專案按鈕 */}
             <section className="pt-12 border-t border-neutral-100">
               <div className="flex justify-between items-end mb-12">
                 <div className="space-y-1">
                   <h3 className="text-[16px] tracking-[0.4em] uppercase text-neutral-400 font-medium">Selected Works</h3>
                   <p className="text-[11px] text-neutral-300 tracking-[0.1em]">精選作品</p>
                 </div>
+                
+                {/* 重新找回來的按鈕 */}
                 <button 
                   onClick={() => setView('projects')}
-                  className="text-[10px] tracking-[0.3em] uppercase border-b border-neutral-200 pb-1 hover:text-black hover:border-black transition-all font-light"
+                  className="text-[11px] tracking-[0.3em] uppercase border-b border-neutral-300 pb-1 hover:text-black hover:border-black transition-all font-light flex items-center gap-2"
                 >
-                  View All
+                  Explore All <span className="text-[9px] italic text-neutral-400">查看所有專案</span>
                 </button>
               </div>
 
-              {/* 限制容器寬度為 5xl，讓 4 張圖顯得小巧精緻 */}
-              <div className="max-w-5xl mx-auto px-6">
+              {/* 使用 w-full 讓圖片在右側空間內撐到最大 */}
+              <div className="w-full">
                 <ProjectGrid onProjectClick={navigateToProject} limit={4} />
               </div>
             </section>
