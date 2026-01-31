@@ -44,16 +44,31 @@ const About: React.FC = () => {
             </div>
           </section>
 
-          {/* 3. 實務經驗 */}
+         {/* 3. 實務經驗 */}
           <section className="pt-12 border-t border-neutral-100 space-y-6">
             <h3 className="text-xs tracking-[0.4em] uppercase text-neutral-400 font-medium">Professional Experience 實務經驗</h3>
-            <div className="text-neutral-600 font-light leading-relaxed space-y-4">
+            <div className="text-neutral-600 font-light leading-relaxed space-y-6">
               <p>
                 具備兩年建築師事務所實務經驗，專攻公共工程。在校舍與變電所專案中，主責 Revit 建模與圖說整合，具備從基本設計、都審至建照申請的全流程經驗。
               </p>
-              <div className="text-sm bg-neutral-50 p-5 rounded-sm border-l-2 border-neutral-200">
-                <span className="text-neutral-900 font-medium">專業工具：</span>
-                Revit (BIM), SketchUp, Lumion, Autocad, Rhino, Twinmotion, CorelDraw, Adobe Creative Suite(Photoshop/Ilustratorr/Indesign).
+              
+              {/* 專業工具區塊 */}
+              <div className="bg-neutral-50 p-6 rounded-sm border-l-2 border-neutral-200">
+                <h4 className="text-sm text-neutral-900 font-medium mb-4">專業工具 Professional Tools</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-1">
+                    <span className="text-[12px] uppercase tracking-widest text-neutral-800 block">[3D建模與製圖]</span>
+                    <p className="text-sm text-neutral-800 leading-relaxed">
+                      Revit, AutoCAD, Rhino, SketchUp
+                    </p>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-[12px] uppercase tracking-widest text-neutral-800 block">[排版與渲染]</span>
+                    <p className="text-sm text-neutral-800 leading-relaxed">
+                      Lumion, Twinmotion, Enscape, Adobe(Photoshop/Illustrator/InDesign), CorelDraw
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
