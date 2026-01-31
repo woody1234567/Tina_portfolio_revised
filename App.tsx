@@ -61,9 +61,9 @@ const App: React.FC = () => {
               <div className="lg:col-span-5 hidden lg:block"></div>
             </div>
 
-            {/* 3. 精選作品區 - 橫向四欄展示 */}
+           {/* 3. 精選作品區 - 三張小圖橫向展示 */}
             <section className="pt-12 border-t border-neutral-100">
-              <div className="flex justify-between items-end mb-10">
+              <div className="flex justify-between items-end mb-12">
                 <div className="space-y-1">
                   <h3 className="text-[16px] tracking-[0.4em] uppercase text-neutral-400 font-medium">Selected Works</h3>
                   <p className="text-[11px] text-neutral-300 tracking-[0.1em]">精選作品</p>
@@ -76,9 +76,9 @@ const App: React.FC = () => {
                 </button>
               </div>
 
-              {/* 這裡 limit={4}，並確保 ProjectGrid.tsx 內部已改為 lg:grid-cols-4 */}
-              <div className="w-full overflow-hidden">
-                <ProjectGrid onProjectClick={navigateToProject} limit={4} />
+              {/* 修改點：限制容器寬度為 4xl，並置中。這會讓 3 張圖在畫面中顯得很精緻 */}
+              <div className="max-w-4xl mx-auto px-6">
+                <ProjectGrid onProjectClick={navigateToProject} limit={3} />
               </div>
             </section>
           </div>
