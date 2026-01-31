@@ -4,10 +4,10 @@ import { Project } from './types';
 export const PROJECTS: Project[] = [
   {
     id: 'p1',
-    title: '光影之境',
-    category: '住宅建築',
-    year: '2023',
-    location: '台北, 台灣',
+    title: '新營P/S 69 kV GIS 新建土建統包工程',
+    category: '變電所',
+    year: '2025-2026',
+    location: '台南, 台灣',
     description: '這是一個探索自然光線與混凝土結構互動的私人住宅專案。通過精確的切口與天井設計，室內空間隨時間推移展現出豐富的光影表情。',
     imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200',
     gallery: [
@@ -15,9 +15,10 @@ export const PROJECTS: Project[] = [
       'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=800'
     ],
     stats: [
-      { label: '基地面積', value: '450 m²' },
-      { label: '樓層高度', value: '3層' },
-      { label: '結構形式', value: '清水混凝土' }
+      { label: '基地面積', value: '46432.72 m²' },
+      { label: '工程預算', value: '4億5000萬' },
+      { label: '樓層高度', value: '2層' },
+      { label: '結構形式', value: '鋼筋混凝土、鋼骨構造、預鑄外牆板' }
     ]
   },
   {
