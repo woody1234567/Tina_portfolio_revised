@@ -7,7 +7,6 @@ import ProjectGrid from './components/ProjectGrid';
 import ProjectDetail from './components/ProjectDetail';
 import About from './components/About';
 import Contact from './components/Contact';
-import AIAssistant from './components/AIAssistant';
 
 const App: React.FC = () => {
   const [view, setView] = useState<ViewState>('home');
@@ -158,9 +157,6 @@ const App: React.FC = () => {
           {renderContent()}
         </div>
       </main>
-
-      {/* Persistent AI Assistant Toggle */}
-      <AIAssistant />
 
       {/* Footer (Minimal) */}
       <footer className="md:ml-64 p-8 text-center text-xs text-neutral-400 tracking-widest uppercase border-t border-neutral-100">
