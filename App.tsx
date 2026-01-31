@@ -30,12 +30,11 @@ const App: React.FC = () => {
       case 'home':
         return (
           <div className="animate-in fade-in duration-1000">
-            {/* 1. 頂部標題區 - 與 About 同步 */}
+            {/* 1. 頂部標題區 */}
             <div className="mb-12 mt-12 space-y-2">
               <h1 className="text-4xl md:text-5xl font-light serif tracking-[0.1em] text-neutral-900">
                 Portfolio <span className="text-xl font-light text-neutral-400 ml-2 italic">作品集</span>
               </h1>
-              
               <div className="pt-2">
                 <h2 className="text-2xl md:text-3xl font-normal tracking-[0.15em] text-neutral-800">
                   莊淯婷 <span className="text-xl md:text-2xl font-light serif italic ml-2 text-neutral-500">Tina Chong</span>
@@ -46,7 +45,7 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* 2. 設計哲學區 - 保持與 About 一致的 7:5 呼吸感 */}
+            {/* 2. 設計哲學區 */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start mb-20">
               <div className="lg:col-span-7 space-y-6">
                 <p className="text-xl text-neutral-800 font-light leading-relaxed serif italic border-l-2 border-neutral-200 pl-8">
@@ -61,7 +60,7 @@ const App: React.FC = () => {
               <div className="lg:col-span-5 hidden lg:block"></div>
             </div>
 
-           {/* 3. 精選作品區 - 三張小圖橫向展示 */}
+            {/* 3. 精選作品區 - 四張小圖橫向展示 */}
             <section className="pt-12 border-t border-neutral-100">
               <div className="flex justify-between items-end mb-12">
                 <div className="space-y-1">
@@ -76,9 +75,9 @@ const App: React.FC = () => {
                 </button>
               </div>
 
-              {/* 修改點：限制容器寬度為 4xl，並置中。這會讓 3 張圖在畫面中顯得很精緻 */}
-              <div className="max-w-4xl mx-auto px-6">
-                <ProjectGrid onProjectClick={navigateToProject} limit={3} />
+              {/* 限制容器寬度為 5xl，讓 4 張圖顯得小巧精緻 */}
+              <div className="max-w-5xl mx-auto px-6">
+                <ProjectGrid onProjectClick={navigateToProject} limit={4} />
               </div>
             </section>
           </div>
