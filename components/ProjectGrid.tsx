@@ -23,14 +23,11 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ onProjectClick, limit }) => {
           <div className="overflow-hidden bg-neutral-100 aspect-[3/2] mb-4">
             <img 
               src={project.imageUrl} 
-              alt={project.title} 
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-              onError={(e) => {
-                // 如果圖片載入失敗，顯示優雅的灰色佔位塊
-                (e.target as HTMLImageElement).src = "https://via.placeholder.com/800x533/f5f5f5/a3a3a3?text=Project+Coming+Soon";
-              }}
-            />
-          </div>
+    alt={project.title}
+    className="w-full h-full object-cover transition-all duration-700 ease-in-out 
+               grayscale hover:grayscale-0 scale-105 hover:scale-100" 
+  />
+</div>
           
           <div className="space-y-1">
             {/* 標題與分類保持精緻小字級 */}
