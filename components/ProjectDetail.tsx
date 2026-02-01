@@ -53,10 +53,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
       {/* 2. 標題區 */}
       <header className="mb-10 text-center md:text-left">
-        <p className="text-[10px] tracking-[0.4em] uppercase text-neutral-400 mb-2 font-medium">
+        <p className="text-[12px] tracking-[0.4em] uppercase text-[12px]-400 mb-2 font-medium">
           {project.category} / {project.year}
         </p>
-        <h1 className="text-3xl md:text-5xl font-light serif text-neutral-900 leading-tight">
+        <h1 className="text-2xl md:text-5xl font-light serif text-[12px]-900 leading-tight">
           {project.title}
         </h1>
       </header>
@@ -69,10 +69,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
           className="w-full h-full object-cover transition-all duration-700 ease-in-out"
         />
         <div className="absolute inset-0 flex items-center justify-between px-6 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button onClick={prevMainImage} className="w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-black hover:text-white transition-all text-xs">←</button>
-          <button onClick={nextMainImage} className="w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-black hover:text-white transition-all text-xs">→</button>
+          <button onClick={prevMainImage} className="w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-black hover:text-white transition-all text-[12px]">←</button>
+          <button onClick={nextMainImage} className="w-10 h-10 flex items-center justify-center bg-white/90 rounded-full hover:bg-black hover:text-white transition-all text-[12px]">→</button>
         </div>
-        <div className="absolute bottom-6 right-8 text-[9px] tracking-[0.3em] text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-sm">
+        <div className="absolute bottom-6 right-8 text-[12px] tracking-[0.3em] text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-sm">
           {activeImageIndex + 1} / {allImages.length}
         </div>
       </div>
@@ -81,17 +81,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12 border-b border-neutral-100 pb-12">
         <div className="lg:col-span-7 space-y-10">
           <section>
-            <h2 className="text-[9px] tracking-[0.4em] uppercase text-neutral-300 mb-4 font-bold pb-2">Description</h2>
-            <p className="text-base font-light text-neutral-600 leading-relaxed whitespace-pre-line">
+            <h2 className="text-[12px] tracking-[0.4em] uppercase text-[12px]-300 mb-4 font-bold pb-2">Description</h2>
+            <p className="text-[12px] font-light text-[12px]-600 leading-relaxed whitespace-pre-line">
               {project.description}
             </p>
           </section>
 
           <section>
-            <h2 className="text-[9px] tracking-[0.4em] uppercase text-neutral-300 mb-4 font-bold pb-2">Role</h2>
+            <h2 className="text-[12px] tracking-[0.4em] uppercase text-[12px]-300 mb-4 font-bold pb-2">Role</h2>
             <div className="flex flex-wrap gap-2">
               {(project.roles || []).map((role, index) => (
-                <span key={index} className="px-3 py-1 text-[9px] tracking-[0.1em] bg-neutral-50 border border-neutral-100 text-neutral-400 rounded-sm">
+                <span key={index} className="px-3 py-1 text-[12px] tracking-[0.1em] bg-neutral-50 border border-neutral-100 text-[12px]-400 rounded-sm">
                   {role}
                 </span>
               ))}
@@ -101,12 +101,12 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
         <div className="lg:col-span-5">
           <div className="bg-neutral-50/50 p-8 border border-neutral-100/50">
-            <h2 className="text-[9px] tracking-[0.5em] uppercase text-neutral-300 mb-8 text-center font-bold">Project Stats</h2>
+            <h2 className="text-[12px] tracking-[0.5em] uppercase text-neutral-300 mb-8 text-center font-bold">Project Stats</h2>
             <div className="space-y-6">
               {(project.stats || []).map((stat, index) => (
                 <div key={index} className="flex flex-col border-b border-neutral-100 pb-4 last:border-0">
-                  <span className="text-[9px] tracking-[0.2em] uppercase text-neutral-300 mb-1">{stat.label}</span>
-                  <span className="text-sm font-light text-neutral-700 tracking-wide">{stat.value}</span>
+                  <span className="text-[12px] tracking-[0.2em] uppercase text-neutral-300 mb-1">{stat.label}</span>
+                  <span className="text-[12px] font-light text-neutral-700 tracking-wide">{stat.value}</span>
                 </div>
               ))}
             </div>
@@ -118,7 +118,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
       {project.gallery && project.gallery.length > 0 && (
         <section className="relative group/gallery">
           <div className="flex items-center justify-between mb-6 px-2">
-            <h3 className="text-[10px] tracking-[0.5em] uppercase text-neutral-300 font-bold italic">Gallery Records</h3>
+            <h3 className="text-[12px] tracking-[0.5em] uppercase text-neutral-300 font-bold italic">Gallery Records</h3>
             {/* Gallery 切換按鈕 */}
             <div className="flex gap-4">
               <button 
