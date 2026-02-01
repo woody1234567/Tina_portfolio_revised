@@ -30,21 +30,18 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ onProjectClick, limit }) => {
           
           {/* 文字資訊區 */}
           <div className="space-y-3">
-            <h3 className="text-lg md:text-[16px] font-normal serif text-neutral-800 leading-tight group-hover:text-black transition-colors">
+            <h3 className="text-lg md:text-[16px] font-normal serif text-neutral-800 leading-tight group-hover:text-black transition-colors min-h-[3rem]">
               {project.title}
             </h3>
 
-            {/* 職責標籤區域 - 修正顏色以確保清晰可見 */}
-            <div className="flex flex-wrap gap-2 py-1">
-              {project.roles?.map((role, index) => (
-                <span 
-                  key={index}
-                  className="px-2 py-0.5 text-[10px] md:text-[11px] tracking-wider bg-neutral-100 text-neutral-500 rounded-sm border border-neutral-200"
-                >
-                  {role}
-                </span>
-              ))}
-            </div>
+         {/* 標籤顯示邏輯 - 只抓第一個標籤 (例如：獨立專案) */}
+<div className="flex flex-wrap gap-2 py-1">
+  {project.roles && project.roles.length > 0 && (
+    <span className="px-2.5 py-1 text-[10px] md:text-[11px] tracking-[0.2em] bg-neutral-100 text-neutral-500 rounded-sm font-medium border border-neutral-200/50 uppercase">
+      {project.roles[0]}
+    </span>
+  )}
+</div>
             
             <div className="flex justify-between items-center border-t border-neutral-100 pt-3">
               <p className="text-[12px] md:text-[14px] tracking-[0.2em] uppercase text-neutral-500 font-medium">

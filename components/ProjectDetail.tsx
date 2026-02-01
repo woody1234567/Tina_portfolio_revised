@@ -46,7 +46,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 max-w-6xl mx-auto px-4 md:px-0">
       
-      {/* 燈箱 */}
+      {/* 燈箱：全螢幕檢視 */}
       {isLightboxOpen && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm animate-in fade-in duration-300"
@@ -56,7 +56,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
           <img 
             src={allImages[activeImageIndex]} 
             alt="Full view"
-            className="max-w-[95vw] max-h-[90vh] object-contain shadow-2xl"
+            className="max-w-[95vw] max-h-[90vh] object-contain shadow-2xl transition-transform duration-500"
           />
         </div>
       )}
@@ -70,7 +70,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
         Back to Projects
       </button>
 
-      {/* 2. 標題區：確保寬度對齊 */}
+      {/* 2. 標題區 */}
       <header className="mb-10 text-left">
         <p className="text-[12px] tracking-[0.4em] uppercase text-neutral-400 mb-2 font-medium">
           {project.category} / {project.year}
@@ -80,9 +80,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
         </h1>
       </header>
 
-      {/* 3. 主區域：圖片 + Stats 並排 */}
+      {/* 3. 主區域：圖片 (9欄) + Stats (3欄) 並排 */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-24 items-stretch">
-        {/* 左側：主圖輪播 (佔 9 欄) */}
         <div className="lg:col-span-9">
           <div className="group relative aspect-video w-full overflow-hidden bg-neutral-100 shadow-sm">
             <img 
@@ -90,25 +89,26 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               alt={project.title}
               className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-[1.03]"
             />
-            {/* 左右切換按鈕 */}
+            
             <button 
-              type="button" onClick={prevMainImage} 
+              type="button" 
+              onClick={(e) => prevMainImage(e)} 
               className="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/90 text-neutral-800 rounded-full hover:bg-black hover:text-white transition-all shadow-xl z-20 opacity-0 group-hover:opacity-100"
             >←</button>
             <button 
-              type="button" onClick={nextMainImage} 
+              type="button" 
+              onClick={(e) => nextMainImage(e)} 
               className="absolute right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/90 text-neutral-800 rounded-full hover:bg-black hover:text-white transition-all shadow-xl z-20 opacity-0 group-hover:opacity-100"
             >→</button>
-            {/* 頁碼 */}
+            
             <div className="absolute bottom-6 right-6 text-[10px] tracking-[0.3em] text-white bg-black/30 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
               {activeImageIndex + 1} / {allImages.length}
             </div>
           </div>
         </div>
 
-        {/* 右側：Project Stats (佔 3 欄) */}
         <div className="lg:col-span-3">
-          <div className="bg-neutral-50/80 p-8 border border-neutral-100/50 h-full">
+          <div className="bg-neutral-50/80 p-8 border border-neutral-100/50 h-full flex flex-col justify-center">
             <h2 className="text-xs tracking-[0.5em] uppercase text-neutral-400 mb-8 font-bold text-center">Project Stats</h2>
             <div className="space-y-6">
               {(project.stats || []).map((stat, index) => (
@@ -122,7 +122,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
         </div>
       </div>
 
-      {/* 4. 內容資訊區 (Description & Role) */}
+      {/* 4. 內容資訊區 */}
       <div className="max-w-4xl mb-32 border-b border-neutral-100 pb-16">
         <div className="space-y-16">
           <section>
@@ -132,12 +132,38 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             </p>
           </section>
 
+          {/* Role & Execution: 雙層次標籤排版 */}
           <section>
-            <h2 className="text-xs tracking-[0.4em] uppercase text-neutral-400 mb-6 font-bold pb-2 border-b border-neutral-50">Role</h2>
-            <div className="flex flex-wrap gap-3">
-              {(project.roles || []).map((role, index) => (
-                <span key={index} className="px-5 py-2 text-sm tracking-[0.1em] bg-neutral-100/50 text-neutral-700 rounded-sm font-medium">{role}</span>
-              ))}
+            <h2 className="text-xs tracking-[0.4em] uppercase text-neutral-400 mb-8 font-bold pb-2 border-b border-neutral-50">Project Role & Execution</h2>
+            
+            <div className="space-y-10">
+              {/* Position: 顯示 roles 的第一個項目 */}
+              {/* Position: 調整為低調優雅的邊框樣式 */}
+{project.roles && project.roles.length > 0 && (
+  <div>
+    <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 mb-4">Position</p>
+    <span className="px-6 py-2 text-[13px] tracking-[0.2em] text-neutral-800 rounded-sm font-semibold uppercase border border-neutral-800">
+      {project.roles[0]}
+    </span>
+  </div>
+)}
+
+              {/* Tasks: 顯示 roles 剩餘的項目 */}
+              {project.roles && project.roles.length > 1 && (
+                <div>
+                  <p className="text-[10px] tracking-[0.3em] uppercase text-neutral-400 mb-4">Execution Tasks</p>
+                  <div className="flex flex-wrap gap-3">
+                    {project.roles.slice(1).map((role, index) => (
+                      <span 
+                        key={index} 
+                        className="px-4 py-2 text-[12px] tracking-[0.05em] bg-neutral-100 text-neutral-600 rounded-sm border border-neutral-200/60 font-light"
+                      >
+                        {role}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </section>
         </div>

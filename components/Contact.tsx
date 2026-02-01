@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
@@ -39,69 +38,98 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="animate-in fade-in duration-700">
-      <h1 className="text-6xl font-light serif mb-16">與我們對話</h1>
+    <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 max-w-6xl mx-auto">
+      <header className="mb-20">
+        <p className="text-[10px] tracking-[0.5em] uppercase text-neutral-400 mb-4 font-medium">Get in touch</p>
+        <h1 className="text-4xl md:text-5xl font-light serif text-neutral-900 tracking-tight">與我聯繫</h1>
+      </header>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-        <div>
-          <form onSubmit={handleSubmit} className="space-y-12">
-            <div className="group border-b border-neutral-200 focus-within:border-black transition-colors">
-              <label className="text-[10px] tracking-widest uppercase text-neutral-400 group-focus-within:text-black block mb-2 transition-colors">您的姓名 Name</label>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+        {/* 左側表單 (佔 7 欄) */}
+        <div className="lg:col-span-7">
+          <form onSubmit={handleSubmit} className="space-y-10">
+            <div className="group relative border-b border-neutral-200 focus-within:border-black transition-all duration-500">
+              <label className="text-[9px] tracking-[0.3em] uppercase text-neutral-400 group-focus-within:text-black block mb-1 transition-colors">Name 姓名</label>
               <input 
                 type="text" 
                 required
-                className="w-full bg-transparent py-4 text-lg outline-none font-light"
+                placeholder="Your name"
+                className="w-full bg-transparent py-4 text-base outline-none font-light placeholder:text-neutral-200"
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
               />
             </div>
             
-            <div className="group border-b border-neutral-200 focus-within:border-black transition-colors">
-              <label className="text-[10px] tracking-widest uppercase text-neutral-400 group-focus-within:text-black block mb-2 transition-colors">電子郵件 Email</label>
+            <div className="group relative border-b border-neutral-200 focus-within:border-black transition-all duration-500">
+              <label className="text-[9px] tracking-[0.3em] uppercase text-neutral-400 group-focus-within:text-black block mb-1 transition-colors">Email 電子郵件</label>
               <input 
                 type="email" 
                 required
-                className="w-full bg-transparent py-4 text-lg outline-none font-light"
+                placeholder="email@example.com"
+                className="w-full bg-transparent py-4 text-base outline-none font-light placeholder:text-neutral-200"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
               />
             </div>
             
-            <div className="group border-b border-neutral-200 focus-within:border-black transition-colors">
-              <label className="text-[10px] tracking-widest uppercase text-neutral-400 group-focus-within:text-black block mb-2 transition-colors">訊息 Message</label>
+            <div className="group relative border-b border-neutral-200 focus-within:border-black transition-all duration-500">
+              <label className="text-[9px] tracking-[0.3em] uppercase text-neutral-400 group-focus-within:text-black block mb-1 transition-colors">Message 訊息內容</label>
               <textarea 
-                rows={4}
+                rows={5}
                 required
-                className="w-full bg-transparent py-4 text-lg outline-none font-light resize-none"
+                placeholder="Tell me about your project"
+                className="w-full bg-transparent py-4 text-base outline-none font-light resize-none placeholder:text-neutral-200"
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
               />
             </div>
             
-            <button 
-              type="submit" 
-              disabled={isSubmitting}
-              className="px-12 py-4 bg-black text-white text-xs tracking-widest uppercase hover:bg-neutral-800 transition-colors disabled:bg-neutral-400"
-            >
-              {isSubmitting ? '傳送中 SENDING...' : '送出訊息 SEND MESSAGE'}
-            </button>
+            <div className="pt-6">
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="group relative overflow-hidden px-14 py-5 bg-black text-white text-[10px] tracking-[0.4em] uppercase transition-all hover:bg-neutral-800 disabled:bg-neutral-300"
+              >
+                <span className="relative z-10">
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </span>
+              </button>
+            </div>
           </form>
         </div>
         
-        <div className="space-y-12">
-          <div>
-            <h3 className="text-xs tracking-[0.4em] uppercase text-neutral-400 mb-6">聯繫資訊 Contact Info</h3>
-            <div className="space-y-4 text-lg font-light text-neutral-600">
-              <p>tina57826@gmail.com</p>
-              <p>+886 925 024 448</p>
-            </div>
+        {/* 右側資訊 (佔 5 欄) */}
+        <div className="lg:col-span-5 flex flex-col justify-between py-2">
+          <div className="space-y-16">
+            <section>
+              <h3 className="text-[10px] tracking-[0.4em] uppercase text-neutral-400 mb-8 font-bold">Contact Info</h3>
+              <div className="space-y-4">
+                <div className="group cursor-pointer">
+                  <p className="text-[11px] text-neutral-400 uppercase tracking-widest mb-1">Email</p>
+                  <p className="text-xl font-light text-neutral-800 group-hover:text-black transition-colors">tina57826@gmail.com</p>
+                </div>
+                <div className="group cursor-pointer pt-4">
+                  <p className="text-[11px] text-neutral-400 uppercase tracking-widest mb-1">Phone</p>
+                  <p className="text-xl font-light text-neutral-800 group-hover:text-black transition-colors">+886 925 024 448</p>
+                </div>
+              </div>
+            </section>
+            
+            <section>
+              <h3 className="text-[10px] tracking-[0.4em] uppercase text-neutral-400 mb-8 font-bold">Social</h3>
+              <div className="flex gap-8">
+                <a href="#" className="text-sm font-medium tracking-widest text-neutral-500 hover:text-black hover:border-b hover:border-black transition-all pb-1">LINKEDIN</a>
+                <a href="#" className="text-sm font-medium tracking-widest text-neutral-500 hover:text-black hover:border-b hover:border-black transition-all pb-1">INSTAGRAM</a>
+              </div>
+            </section>
           </div>
-          
-          <div>
-            <h3 className="text-xs tracking-[0.4em] uppercase text-neutral-400 mb-6">社交媒體 Social</h3>
-            <div className="flex flex-col space-y-2 text-sm font-light text-neutral-500">
-              <a href="#" className="hover:text-black transition-colors">LinkedIn</a>
-            </div>
+
+          {/* 底部裝飾文字，增加專業感 */}
+          <div className="hidden lg:block pt-20">
+            <p className="text-neutral-300 text-[11px] leading-relaxed italic">
+              "Architecture is not just about space, <br />
+              it's about the connection between people."
+            </p>
           </div>
         </div>
       </div>

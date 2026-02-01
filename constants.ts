@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     year: '2025-2026',
     location: '台南, 台灣',
     // 補齊職責標籤
-    roles: ['土建統包', '施工管理', '設計圖說核對'],
+    roles: [' 獨立專案', '立面外殼設計', '3D模型製作', '渲染動畫', '服務建議書製作', '基本設計', '法規檢討', '都市設計審議', '建造執造申請', '細部設計'],
     description: '此專案為國家級電力基礎設施，重點在於 GIS 設備房的空間機能與土建結構的精確配合。在統包模式下，需協調多方專業分工，確保高度安全標準與工程進度。',
     imageUrl: 'https://i.postimg.cc/X7hYrvVY/project01_1.jpg',
     gallery: [
