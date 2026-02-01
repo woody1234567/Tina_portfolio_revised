@@ -18,15 +18,15 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ onProjectClick, limit }) => {
           className="group cursor-pointer" 
           onClick={() => onProjectClick(project)}
         >
-          {/* 圖片區域 */}
-          <div className="overflow-hidden bg-neutral-100 aspect-[3/2] mb-6">
-            <img 
-              src={project.imageUrl} 
-              alt={project.title.replace('\n', ' ')} // 替代文字不換行
-              className="w-full h-full object-cover transition-all duration-700 ease-in-out 
-                         grayscale hover:grayscale-0 scale-105 hover:scale-100" 
-            />
-          </div>
+          {/* 圖片區域 - 移除黑白效果，保留優雅的縮放動畫 */}
+<div className="overflow-hidden bg-neutral-100 aspect-[3/2] mb-6 shadow-sm">
+  <img 
+    src={project.imageUrl} 
+    alt={project.title.replace('\n', ' ')} 
+    className="w-full h-full object-cover transition-all duration-1000 ease-out 
+               scale-100 group-hover:scale-105" 
+  />
+</div>
           
           {/* 文字資訊區 */}
           <div className="space-y-3">
