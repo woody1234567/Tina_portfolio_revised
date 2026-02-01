@@ -78,41 +78,45 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
       </div>
 
       {/* 4. 內容資訊區 */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12 border-b border-neutral-100 pb-12">
-        <div className="lg:col-span-7 space-y-10">
-          <section>
-            <h2 className="text-[12px] tracking-[0.4em] uppercase text-[12px]-300 mb-4 font-bold pb-2">Description</h2>
-            <p className="text-[12px] font-light text-[12px]-600 leading-relaxed whitespace-pre-line">
-              {project.description}
-            </p>
-          </section>
+<div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20 border-b border-neutral-100 pb-16">
+  <div className="lg:col-span-8 space-y-14"> {/* 稍微加寬左側比例 (7->8) */}
+    <section>
+      <h2 className="text-xs tracking-[0.4em] uppercase text-neutral-400 mb-6 font-bold pb-2 border-b border-neutral-50">
+        Description
+      </h2>
+      <p className="text-xl md:text-xl font-light text-neutral-900 leading-loose whitespace-pre-line tracking-wide">
+        {project.description}
+      </p>
+    </section>
 
-          <section>
-            <h2 className="text-[12px] tracking-[0.4em] uppercase text-[12px]-300 mb-4 font-bold pb-2">Role</h2>
-            <div className="flex flex-wrap gap-2">
-              {(project.roles || []).map((role, index) => (
-                <span key={index} className="px-3 py-1 text-[12px] tracking-[0.1em] bg-neutral-50 border border-neutral-100 text-[12px]-400 rounded-sm">
-                  {role}
-                </span>
-              ))}
-            </div>
-          </section>
-        </div>
-
-        <div className="lg:col-span-5">
-          <div className="bg-neutral-50/50 p-8 border border-neutral-100/50">
-            <h2 className="text-[12px] tracking-[0.5em] uppercase text-neutral-300 mb-8 text-center font-bold">Project Stats</h2>
-            <div className="space-y-6">
-              {(project.stats || []).map((stat, index) => (
-                <div key={index} className="flex flex-col border-b border-neutral-100 pb-4 last:border-0">
-                  <span className="text-[12px] tracking-[0.2em] uppercase text-neutral-300 mb-1">{stat.label}</span>
-                  <span className="text-[12px] font-light text-neutral-700 tracking-wide">{stat.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+    <section>
+      <h2 className="text-xs tracking-[0.4em] uppercase text-neutral-400 mb-6 font-bold pb-2 border-b border-neutral-50">
+        Role
+      </h2>
+      <div className="flex flex-wrap gap-3">
+        {(project.roles || []).map((role, index) => (
+          <span key={index} className="px-5 py-2 text-sm tracking-[0.1em] bg-neutral-100/50 text-neutral-700 rounded-sm font-medium">
+            {role}
+          </span>
+        ))}
       </div>
+    </section>
+  </div>
+
+  <div className="lg:col-span-4"> {/* 右側比例縮小 (5->4) */}
+    <div className="bg-neutral-50/80 p-10 border border-neutral-100/50 sticky top-8">
+      <h2 className="text-xs tracking-[0.5em] uppercase text-neutral-400 mb-10 text-center font-bold">Project Stats</h2>
+      <div className="space-y-8">
+        {(project.stats || []).map((stat, index) => (
+          <div key={index} className="flex flex-col border-b border-neutral-200/50 pb-5 last:border-0">
+            <span className="text-[10px] tracking-[0.2em] uppercase text-neutral-400 mb-2">{stat.label}</span>
+            <span className="text-lg font-normal text-neutral-800 tracking-wide">{stat.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* 5. Gallery：膠捲式按鈕切換 */}
       {project.gallery && project.gallery.length > 0 && (
