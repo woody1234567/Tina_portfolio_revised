@@ -22,44 +22,47 @@ const App: React.FC = () => {
       case 'home':
         return (
           <div className="animate-in fade-in duration-1000">
-            {/* 1. 標題與哲學區 - 縮小標題字體 */}
-            <div className="flex flex-col lg:flex-row justify-between items-end mb-20 mt-8 gap-12">
+            {/* 1. 標題與哲學區 - 大幅縮減頂部 mt-2 與底部 mb-12 */}
+            <div className="flex flex-col lg:flex-row justify-between items-start mb-12 mt-2 gap-8">
               <div className="flex-1">
-                <h1 className="text-2xl md:text-3xl font-light serif tracking-[0.2em] text-neutral-900 uppercase">
+                <h1 className="text-xl md:text-2xl font-light serif tracking-[0.2em] text-neutral-900 uppercase">
                   Architecture Portfolio
                 </h1>
-                <div className="h-px w-12 bg-neutral-900 my-6"></div>
-                <h2 className="text-3xl md:text-4xl font-normal tracking-[0.1em] text-neutral-800">
-                  莊淯婷 <span className="text-xl md:text-2xl font-light serif italic ml-2 text-neutral-400 font-serif">Tina Chong</span>
+                
+                {/* 縮短線條間距 */}
+                <div className="h-px w-10 bg-neutral-900 my-4"></div>
+                
+                {/* 姓名縮小：text-xl md:text-2xl */}
+                <h2 className="text-xl md:text-2xl font-normal tracking-[0.1em] text-neutral-800">
+                  莊淯婷 <span className="text-lg md:text-xl font-light serif italic ml-1 text-neutral-400 font-serif">Tina Chong</span>
                 </h2>
               </div>
 
-              {/* 設計哲學區 */}
-              <div className="max-w-md text-right space-y-4">
-                <p className="text-[14px] md:text-[15px] text-neutral-400 font-light leading-relaxed serif italic border-r border-neutral-300 pr-6">
+              {/* 設計哲學區 - 字級稍微調降以維持緊湊感 */}
+              <div className="max-w-md text-right space-y-3 self-start lg:self-end">
+                <p className="text-[13px] md:text-[14px] text-neutral-400 font-light leading-relaxed serif italic border-r border-neutral-300 pr-4">
                   "Architecture should be more than a cold vessel; <br className="hidden md:block" />
                   it is an extension of life itself."
                 </p>
-                <p className="text-[13px] md:text-[14px] text-neutral-500 pr-6 leading-loose tracking-[0.1em] font-light">
+                <p className="text-[12px] md:text-[13px] text-neutral-500 pr-4 leading-loose tracking-[0.05em] font-light">
                   建築不應只是冰冷的容器，而是生活的延伸。
                 </p>
               </div>
             </div>
 
-            {/* 2. 作品區 - 加大標題與網格間距 */}
-            <section className="pt-12 border-t border-neutral-100">
-              <div className="mb-12 flex items-center justify-between">
-                <h3 className="text-[18px] md:text-[20px] tracking-[0.3em] uppercase text-neutral-800 font-light">Selected Works</h3>
-                <span className="text-[12px] text-neutral-300 tracking-widest uppercase hidden md:block">精選作品</span>
+            {/* 2. 作品區 - 縮減與上方標題的 pt-8 */}
+            <section className="pt-8 border-t border-neutral-100">
+              <div className="mb-8 flex items-center justify-between">
+                <h3 className="text-[16px] md:text-[17px] tracking-[0.3em] uppercase text-neutral-800 font-light">Selected Works</h3>
+                <span className="text-[11px] text-neutral-300 tracking-widest uppercase hidden md:block">精選作品</span>
               </div>
               
-              {/* 這裡可以透過 CSS 或容器微調讓內容看起來更大 */}
-              <div className="scale-[1.02] origin-left transition-transform">
+              <div className="origin-top">
                 <ProjectGrid onProjectClick={navigateToProject} limit={4} />
               </div>
 
-              {/* 3. 左對齊按鈕 */}
-              <div className="mt-20 flex justify-start">
+              {/* 3. 按鈕區間距縮減 */}
+              <div className="mt-12 flex justify-start">
                 <button 
                   onClick={() => setView('projects')} 
                   className="group flex items-center gap-6 transition-all"
@@ -72,7 +75,7 @@ const App: React.FC = () => {
                       查看所有專案
                     </span>
                   </div>
-                  <span className="text-2xl transition-transform group-hover:translate-x-2">→</span>
+                  <span className="text-xl transition-transform group-hover:translate-x-2">→</span>
                 </button>
               </div>
             </section>
@@ -81,8 +84,8 @@ const App: React.FC = () => {
 
       case 'about': return <About />;
       case 'projects': return (
-        <div className="pt-8">
-          <h1 className="text-3xl font-light mb-12 tracking-widest uppercase">工作專案</h1>
+        <div className="pt-4">
+          <h1 className="text-2xl font-light mb-8 tracking-widest uppercase">工作專案</h1>
           <ProjectGrid onProjectClick={navigateToProject} />
         </div>
       );
@@ -101,7 +104,8 @@ const App: React.FC = () => {
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
-      <main className="flex-1 px-8 py-12 md:px-16 md:py-20 md:ml-64">
+      {/* 修改這裡的 pt-4 md:pt-8，將整個內容區塊上移 */}
+      <main className="flex-1 px-8 pt-4 pb-12 md:px-16 md:pt-8 md:ml-64">
         <div className="max-w-[1400px] mx-auto w-full">
           {renderContent()}
         </div>
